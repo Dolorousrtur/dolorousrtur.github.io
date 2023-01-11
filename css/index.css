@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap');
+
+body,
+html {
+    background-color: #FFFFFF;
+    color: black;
+    height: 100%; 
+}
+
+/* HEADINGS */ 
+#main-heading {
+    border-top: solid;
+}
+
+#about-me h1 {
+    font-family: 'Hammersmith One', sans-serif;
+}
+
+#second-heading {
+    font-family: monospace;
+    font-size: 25px;
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#second-heading:before,
+#second-heading:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+#second-heading:after {
+    margin: 0 0 0 20px;
+}
+
+.heading h1 {
+    width: 1034px;
+    display: flex;
+    font-size: 25px;
+    font-family: monospace;
+    width: 100%;
+    margin-top: 30px
+}
+
+
+.heading h1:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+.heading h1:after {
+    margin: 15px 0 0 10px;
+}
+
+/* ---------------------------------- */
+
+/* EFFECTS */
+
+.gray-text {
+    color: gray;
+}
+
+
+.hue-bold {
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*-webkit-animation: hue 10s infinite linear;*/
+}
+
+/*---------------------------------------------------------*/
+
+/* OTHER */
+
+#main-box {
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 20px;
+}
+
+#about-me .name-heading {
+    max-width: 50rem;
+}
+
+#about-me div div img {
+    width: 20rem;
+    /*height: 10rem;*/
+    /*border-radius: 5rem;*/
+    /*border: 3px solid;*/
+}
+
+.project-card {
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s box-shadow, max-height .3s ease-in-out;
+    cursor: pointer;
+    max-height: 230px;
+}
+
+.project-card:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    -webkit-text-fill-color: black;
+    max-height: 700px;
+    /*background-image: -webkit-linear-gradient(92deg, #02aab0, #00cdac);*/
+    /*-webkit-background-clip: text;*/
+    /*-webkit-text-fill-color: transparent;*/
+    /*-webkit-animation: hue 10s infinite linear;*/
+}
+
+.experience-card{
+    border: 1px solid rgba(0,0,0,.125);
+    transition: .3s border;
+}
+.experience-card:hover{
+    border: 1px solid rgba(0,0,0,.5);
+}
+
+.project-card-text:after {
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    height:20px;
+    width:100%;
+    background: linear-gradient(rgba(0,0,0,0), #FFF);
+}
+
+.project-card-text {
+    color: gray;
+    text-align: justify;
+}
+
+/* -------------------------- */
+
+/* ALL LINKS */
+
+a{
+    text-decoration:none;
+    color: #5d5d5d;
+}
+
+/* -------------------------- */
+
+/* CONNECT WITH ME */
+
+#connect {
+    font-family: monospace;
+    font-size: 25px;
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#connect:before,
+#connect:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+#connect:after {
+    margin: 0 0 0 20px;
+}
+
+.connect-elements{
+    width: 10px;
+    font-size: 3rem;
+    color: gray;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    transition: all .3s;
+}
+
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  margin: auto;
+}
+
+/* FOOTER */
+
+.sticky__footer {
+    background-color: var(--darker-bg);
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    color: #fff;
+  }
+
+/* -------------------------- */
+
+/* ANIMATION */
+
+
+@-webkit-keyframes hue {
+    from {
+        -webkit-filter: hue-rotate(0deg);
+    }
+
+    to {
+        -webkit-filter: hue-rotate(-360deg);
+    }
+}
+
+/* --------------- */

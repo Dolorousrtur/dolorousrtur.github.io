@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Artur Grigorev</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/index.css">
+
+    <script src="https://kit.fontawesome.com/8c9171bec9.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css" />
+    <link rel="icon" href="/assets/Portfolio Icon.jfif">
+</head>
+
+
+<body>
+    <!-- GRADIANT EFFECT ON TOP -->
+<!--    <h1 id="main-heading" class="gradiant-effect"></h1>-->
+    <!-- MAIN DIVIDER WHICH CONTAINS ALL THE OTHER CATEGORY-->
+    <div id="main-box" style=" width: 100%;">
+        <!-- ABOUT ME SECTION -->
+        <div class="d-flex justify-content-center container-xxl" id="about-me">
+            <div class="d-flex">
+              <!-- <div> -->
+                <div class="flex-shrink-1">
+                    <!-- IMAGE OF THE PERSON-->
+                    <img src="assets/agrigorev.png" height="10%"   class="img-fluid">
+                </div>
+                <div class="flex-grow-1 ms-5 name-heading">
+                    <!-- NAME OF THE PERSON -->
+                    <h1>Artur Grigorev</h1>
+                    <!-- ABOUT HIM -->
+                    <p style="text-align: justify">
+                      Hello!
+                      <br>
+                      <br>
+                      I am a Ph.D. student at the <a href="https://learning-systems.org/">Max Planck ETH Center for Learning Systems (CLS)</a>, 
+                      jointly supervised by <a href="https://ait.ethz.ch/people/hilliges/">Otmar Hilliges</a> (ETH)
+                      and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a> (MPI).
+                      <br><br>
+                      My research interests lay in the area of building photo-realistic human avatars.
+                      Currently, I am focused on the task of modelling and reconstructing human clothing. 
+                      I am most interested in the challenging task of modelling loose garments, such as skirts, dresses and unbuttoned shirts
+                      <br>
+                      <br>
+                      Prior to my Ph.D., I was working as a research engineer at 
+                      <a href="https://research.samsung.com/aicenter_moscow">Samsung AI Cented Moscow</a>. 
+                      <br>
+                      I obtained my Master's Degree in Data Science from 
+                      <a href="https://www.skoltech.ru/en/">
+                        Skolkovo Institute of Science and Technology</a> 
+                        and my Bachelor's Degree in Software Engineering from 
+                        <a href="https://www.hse.ru/en/">Higher School of Economics Moscow</a>
+
+                      <br>
+                      <br>
+                      You can get in touch with me using the following links:
+                    </p>
+                    <br>
+                <div class="row">
+     <div class="col-4 text-center"><a href="mailto:agrigorev@ethz.ch"><i class="fa-regular fa-envelope fa-2xl" data-tippy-content="E-Mail"></i></a></div>
+     <div class="col-4 text-center"><a href="https://www.linkedin.com/in/artur-grigorev-98327b147/"><i class="fa-brands fa-linkedin fa-2xl" data-tippy-content="LinkedIn"></i></a></div>
+    <div class="col-4 text-center"><a href="https://github.com/dolorousrtur"><i class="fa-brands fa-github fa-2xl" data-tippy-content="GitHub"></i></a></div>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container-xxl heading" style=" width: 1034px;">
+            <h1>PROJECTS</h1>
+        </div>
+        <br>
+        <!-- PROJECT THAT HE OWNS -->
+        <div class="container-xxl" style="width: 1034px;" id="projects">
+            <div class="row row-cols-1 g-4">
+
+              <div class="col">
+                <div class="card project-card mb-1">
+                  <div class="row g-0">
+                    <div class="col-5">
+                        <img src="assets/hood_teaser.png" class="img-fluid">
+                    </div>
+                    <div class="col-7">
+                      <div class="card-body">
+                        <h5 class="card-title">HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics</h5>
+                        <a href="projects/hood/hood.html" class="stretched-link hidden"></a>
+                        <p class="project-card-text">                    
+                          We propose a method that leverages graph neural
+                          networks, multi-level message passing, and unsupervised
+                          training to enable real-time prediction of realistic clothing
+                          dynamics. 
+                          <br><br>
+                          Whereas existing methods based on linear blend
+                          skinning must be trained for specific garments, our method
+                          is agnostic to body shape and applies to tight-fitting garments as well as loose, free-flowing clothing. Our method
+                          furthermore handles changes in topology (e.g., garments
+                          with buttons or zippers) and material properties at inference time. 
+                          <br><br>
+                          As one key contribution, we propose a hierarchical message-passing scheme that efficiently propagates stiff
+                          stretching modes while preserving local detail. We empirically show that our method outperforms strong baselines
+                          quantitatively and that its results are perceived as more realistic than state-of-the-art methods
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+                <div class="col">
+                    <div class="card project-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <img src="assets/pbm_teaser.png" class="img-fluid">
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">Point-Based Modeling of Human Clothing</h5>
+                            <p class="project-card-text"><small class="text-muted">ICCV 2021</small></p>
+                              <a href="https://saic-violet.github.io/point-based-clothing/" class="stretched-link hidden"></a>
+                            <p class="project-card-text">A new approach to human clothing modeling based on point clouds. 
+                              <br><br>
+                              Within this approach, we learn a deep model that can predict point clouds of various outfits, 
+                              for various human poses, and for various human body shapes. 
+                              Notably, outfits of various types and topologies can be handled by the same model. 
+                              Using the learned model, we can infer the geometry of new outfits from as little as a single image, 
+                              and perform outfit retargeting to new bodies in new poses. 
+                              <br><br>
+                              We complement our geometric model with appearance modeling that uses the point cloud geometry 
+                              as a geometric scaffolding and employs neural point-based graphics to 
+                              capture outfit appearance from videos and to re-render the captured outfits. </p>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>                
+                <div class="col">
+                    <div class="card project-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <img src="assets/stylepeople_teaser.gif" class="img-fluid">
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">StylePeople: A Generative Model of Fullbody Human Avatars</h5>
+                            <p class="project-card-text"><small class="text-muted">CVPR 2021</small></p>
+                            <a href="https://saic-violet.github.io/style-people/" class="stretched-link hidden"></a>
+                            <p class="project-card-text">We propose a new type of full-body human avatars, 
+                              which combines parametric mesh-based body model with a neural texture. 
+                              <br><br>
+                              We show that with the help of neural textures, such avatars can successfully model clothing and hair, 
+                              which usually poses a problem for mesh-based approaches. 
+                              We also show how these avatars can be created from multiple frames of a video using backpropagation. 
+                              <br><br>
+                              We then propose a generative model for such avatars that can be trained from datasets of images 
+                              and videos of people. The generative model allows us to sample random avatars as well 
+                              as to create dressed avatars of people from one or few images.</p>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card project-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <img src="assets/cib_teaser.gif" class="img-fluid">
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">Coordinate-based Texture Inpainting for Pose-Guided Image Generation</h5>
+                            <p class="project-card-text"><small class="text-muted">CVPR 2019</small></p>
+                              <a href="https://saic-violet.github.io/coordinpaint/" class="stretched-link hidden">A deep learning approach to pose-guided resynthesis of human photographs. 
+                                At the heart of the approach is the estimation of the complete body surface texture based on a single 
+                                photograph. Since the input photograph always observes only a part of the surface, 
+                                we suggest a <b>new inpainting method that completes the texture of the human body</b>. 
+                                <br><br>
+
+                                Rather than working directly with colors of texture elements, the inpainting network estimates 
+                                an appropriate source location in the input image for each element of the body surface. 
+                                This correspondence field between the input image and the texture is then further warped 
+                                into the target image coordinate frame based on the desired pose, 
+                                effectively establishing the correspondence between the source and the target 
+                                view even when the pose change is drastic. 
+                                <br><br>
+                                The final convolutional network then uses the established correspondence and all other 
+                                available information to synthesize the output image using a fully-convolutional 
+                                architecture with deformable convolutions. 
+                                <br><br>
+                                We show the state-of-the-art results 
+                                for pose-guided image synthesis at the time of publishing. 
+                                Additionally, we demonstrate the performance of our system for garment transfer and 
+                                pose-guided face resynthesis.</a>
+                            <p class="project-card-text"></p>
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="container-xxl heading" style=" width: 1034px;">
+            <h1>EXPERIENCE & EDUCATION</h1>
+        </div>
+        <br>
+        <div class="container-xxl" style="width: 1034px;">
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card experience-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
+                                <a href="https://learning-systems.org/"><img src="assets/cls_logo.png" class="img-fluid" style="width: 75%"></a>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">Ph.D. Student</h5>
+                              <p class="card-text"><small class="text-muted">Max Planck ETH Center for Learning Systems (CLS)<br>
+                                Since May 2022</small></p>
+                            <p class="card-text">Co-supervised by <a href="https://ait.ethz.ch/people/hilliges/">Otmar Hilliges</a> 
+                              and <a href="https://ps.is.mpg.de/~black">Michael J. Black</a>. 
+                              <br>
+                              My main research interest are photo-realistic human avatars.
+                              My current project concerns modelling and reconstruction of human clothing. 
+                              I am especially interested in handling loose garments, such as skirts, dresses, unbuttoned shirts etc.,
+                              that do not follow the human body closely.
+                              </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card experience-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 160px">
+                                <a href="https://research.samsung.com/aicenter_moscow"><img src="assets/saic_logo.png" class="img-fluid" style="width: 40%"></a>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">Research Engineer</h5>
+                              <p class="card-text"><small class="text-muted">Samsung AI Canter (SAIC) Moscow
+                                <br>May 2018 - Apr 2022</small></p>
+                              <p class="card-text">I was a research engineer at Vision, Learning & Telepresence (VIOLET) 
+                                lab under the supervision of <a href="https://scholar.google.com/citations?user=gYYVokYAAAAJ&hl=en">
+                                  Victor Lempitsky</a>. I was doing research in the area of photorealistic human avatars, 
+                                  which resulted in two first-author CVPR papers.
+                                I also co-authored one CVPR paper and one ICCV paper (see the list of projects above for details).</p>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card experience-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
+                                <a href="https://www.skoltech.ru/en/"><img src="assets/skoltech_logo.png" class="img-fluid" style="width: 100%"></a>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">M.Sc., Data Science</h5>
+                              <p class="card-text"><small class="text-muted">Skolkovo Institute of Science and Technology (Skoltech)<br>2017 - 2018</small></p>
+                            <p class="card-text">Graduate Studies with focus on Data Analysis and Computer Vision. 
+                              Finished with exellence under the supervision of <a href="https://scholar.google.com/citations?user=gYYVokYAAAAJ&hl=en">
+                              Victor Lempitsky</a>.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card experience-card mb-1">
+                      <div class="row g-0">
+                        <div class="col-5">
+                            <div class="col d-flex align-items-center justify-content-center text-center" style="align-items: center; height: 200px">
+                                <a href="https://www.hse.ru/en/"><img src="assets/hse_logo.png" class="img-fluid" style="width: 80%"></a>
+                            </div>
+                        </div>
+                        <div class="col-7">
+                          <div class="card-body">
+                            <h5 class="card-title">B.Sc., Software Engineering</h5>
+                              <p class="card-text"><small class="text-muted">Higher School of Economics (HSE) Moscow<br>2013 - 2017</small></p>
+                            <p class="card-text">Undergraduate studies focused on programming, software engineering and project management.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h1 class="gradiant-effect" id="connect"> GET IN TOUCH </h1>
+        <br>
+        <br>
+        <div class="row">
+    <div class="col-3"></div>
+     <div class="col-2 text-center"><a href="mailto:agrigorev@ethz.ch"><i class="fa-regular fa-envelope fa-2xl" data-tippy-content="E-Mail"></i></a></div>
+     <div class="col-2 text-center"><a href="https://www.linkedin.com/in/artur-grigorev-98327b147/"><i class="fa-brands fa-linkedin fa-2xl" data-tippy-content="LinkedIn"></i></a></div>
+    <div class="col-2 text-center"><a href="https://github.com/dolorousrtur"><i class="fa-brands fa-github fa-2xl" data-tippy-content="GitHub"></i></a></div>
+    <div class="col-3"></div>
+
+    
+</div>
+        <br><br>
+        <br><br>
+
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+        <div class="elfsight-app-4fd6d63f-c493-4a30-8558-af66a359e9ef" align="center"></div>
+
+        <script>
+            tippy('[data-tippy-content]', {
+                arrow: false,
+                inertia: true,
+                animation: 'scale',
+                theme: 'gradiant',
+                placement: 'bottom',
+            });
+        </script>
+
+    </div>
+</body>
+
+</html>
