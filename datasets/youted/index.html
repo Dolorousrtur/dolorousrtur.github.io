@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<title>YouTED</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+
+.w3-img {
+  padding: 4px;
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 4px;
+   width: 100%;
+}
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <!-- <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a> -->
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#home" class="w3-bar-item w3-button">Home</a>
+      <a href="#abstract" class="w3-bar-item w3-button">About</a>
+      <a href="#data" class="w3-bar-item w3-button">Downloads</a>
+      <a href="#scheme" class="w3-bar-item w3-button">Scheme</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="#abstract" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
+  <a href="#code" onclick="w3_close()" class="w3-bar-item w3-button">Downloads</a>
+  <a href="#video" onclick="w3_close()" class="w3-bar-item w3-button">Scheme</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-padding-64" id="home">
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l1">&nbsp;</div>
+    <div class="w3-col s10 m10 l10 w3-center">
+      <span class="w3-xxlarge w3-hide-medium w3-hide-small" style="font-size:4.310vw !important">TEDXPeople</span>
+      <span class="w3-xxlarge w3-hide-large w3-hide-small"  style="font-size:5.300vw !important">TEDXPeople</span>
+      <span class="w3-xlarge w3-hide-large w3-hide-medium">TEDXPeople</span>
+      </br>
+      <span class="w3-xxlarge w3-hide-medium w3-hide-small" style="font-size:2.862vw !important">A Dataset of YouTube TED videos</span>
+      <span class="w3-xxlarge w3-hide-large w3-hide-small"  style="font-size:3.724vw !important">A Dataset of YouTube TED videos</span>
+      <span class="w3-xlarge w3-hide-large w3-hide-medium">A Dataset of YouTube TED videos</span>
+    </div>
+    <div class="w3-col s1 m1 l1">&nbsp;</div>
+  </div>
+<!--   <div class="w3-row w3-text-black w3-padding-2 w3-hide-small">&nbsp;</div>
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s3 m2 l2 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Artur Grigorev<sup>1,2*</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Artur Grigorev<sup>1,2*</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Artur Grigorev<sup>1,2*</sup></span>
+    </div>
+    <div class="w3-col s3 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Karim Iskakov<sup>1*</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Karim Iskakov<sup>1*</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Karim Iskakov<sup>1*</sup></span>
+    </div>
+    <div class="w3-col s3 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Anastasia Ianina<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Anastasia Ianina<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Anastasia Ianina<sup>1,2</sup></span>
+    </div>
+    <div class="w3-col s3 m2 l2 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Renat Bashirov<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Renat Bashirov<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Renat Bashirov<sup>1,2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div> -->
+<!-- 
+
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s5 m3 l3 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Ilya Zakharkin<sup>1,2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Ilya Zakharkin<sup>1,2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Ilya Zakharkin<sup>1,2</sup></span>
+    </div>
+    <div class="w3-col s5 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Alexander Vakhitov<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Alexander Vakhitov<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Alexander Vakhitov<sup>1</sup></span>
+    </div>
+    <div class="w3-col s5 m3 l3 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Victor Lempitsky<sup>1,2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Victor Lempitsky<sup>1,2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Victor Lempitsky<sup>1,2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div>
+
+
+  <div class="w3-row w3-text-black w3-padding-2 w3-hide-small">&nbsp;</div>
+
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s5 m4 l3 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Samsung AI Center Moscow<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Samsung AI Center Moscow<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Samsung AI Center Moscow<sup>1</sup></span>
+    </div>
+    <div class="w3-col s7 m6 l5 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div>
+ -->
+
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m10 l8 w3-center w3-img">
+      <img style="width: 100%" src="assets/youted_teaser.png">
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-center">
+        <span class="w3-large">Figure 1: <b>TEDXPeople samples</b>, i.e pictures of people performing on a stage during TED/TEDx talks.</span>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+
+
+
+<!-- Abstract Section -->
+<div class="bgimg-1 w3-padding-64" id="abstract">
+  <div class="w3-row w3-text-black w3-padding-16">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-left-align">
+      <span class="w3-xxlarge" >About dataset</span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-justify">
+        <span class="w3-large">TEDXPeople dataset contains  48,188  videos  of  TED  and TED-X talks. We have extracted and processed from 8 to 16 frames from each video, in which a person is visible in either full-body or close-up upper-body view. This dataset is very diverse in terms of demographics andclothing styles,  though the resolution is limited and there are certain biases associated with peculiar lighting and camera viewpoints specific to TED(-X) talks. We open-source a list of links to YouTube videos and specific frames that we used. For each frame we also provide an SMPL-X fit of a speaker. </span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m10 l8 w3-center w3-img">
+      <img style="width: 100%" src="assets/ted_seq_example.png">
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-hide-small">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-center">
+        <span class="w3-large">Figure 2: Full-body samples from a random TED video with corresponding SMPL-X fits.  </span>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+</div>
+
+<div class="bgimg-1 w3-padding-64" id="data">
+  <div class="w3-row w3-text-black w3-padding-16">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-left-align">
+      <span class="w3-xxlarge" >Downloads</span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-justify">
+        <span class="w3-large">Due to legal reasons we can not publish raw images from the dataset. However, we provide list of youtube videos we used along with frame indexes used for training and testing. We also publish parameters for SMPLx body model fitted using <u><a href=https://github.com/vchoutas/smplify-x>smplify-x</a></u> mathod.   </span>
+    </div>
+
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-justify">
+        <span class="w3-large">
+          You may download a .zip file with the data splits and SMPLx parameters using the following links:
+          <!-- <ul>
+            <li>TEDXPeople.json</li>
+            <li>TEDXPeople_upperbody.json</li>
+            <li>TEDXPeople_512.json</li>
+          </ul> -->
+         </span>
+  </div>   
+
+<div class="w3-row w3-text-black w3-hide-small w3-padding-32">
+  <div class="w3-col m3 l3">&nbsp;</div>
+  <div class="w3-col s6 m3 l3 w3-center">
+    <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1OnhsN5Ll1FenljzdTG3OEgHxtiN66jLT">
+      <!-- <img src="assets/projects/pdf.svg" class="img_links img-responsive"> -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20%" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M12 5c3.453 0 5.891 2.797 5.567 6.78 1.745-.046 4.433.751 4.433 3.72 0 1.93-1.57 3.5-3.5 3.5h-13c-1.93 0-3.5-1.57-3.5-3.5 0-2.797 2.479-3.833 4.433-3.72-.167-4.218 2.208-6.78 5.567-6.78zm0-2c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/></svg>
+      <p></p>
+      <div class="author"><b>Data splits</b></div>
+    </a>
+  </div>
+  <div class="w3-col s6 m3 l3 w3-center">
+    <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1guxSacz2y7sJzQmM5XNquTlbmapJxHR5">
+      <!-- <img src="assets/projects/pdf.svg" class="img_links img-responsive"> -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="width: 20%" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M12 5c3.453 0 5.891 2.797 5.567 6.78 1.745-.046 4.433.751 4.433 3.72 0 1.93-1.57 3.5-3.5 3.5h-13c-1.93 0-3.5-1.57-3.5-3.5 0-2.797 2.479-3.833 4.433-3.72-.167-4.218 2.208-6.78 5.567-6.78zm0-2c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/></svg>
+      <p></p>
+      <div class="author"><b>SMPLx Parameters</b></div>
+    </a>
+  </div>
+  <div class="w3-col m3 l3">&nbsp;</div>
+</div>
+
+<div class="w3-row w3-text-black w3-hide-small w3-padding-32">
+  <div class="w3-col s1 m1 l2">&nbsp;</div>
+  <div class="w3-col s10 m10 l8 w3-justify">
+      <span class="w3-large">
+        The data splits .zip file contains following data:
+          <ul>
+            <li><b>TEDXPeople.json</b> -- full list of video links and frame indexes splitted into train and test parts</li>
+            <li><b>TEDXPeople_upperbody.json</b> -- subset containing only upperbody frames</li>
+            <li><b>TEDXPeople_512.json</b> -- subset containing only frames where human body resolution is close to or exceeds 512p</li>
+          </ul>
+  </div>
+</div>
+
+<div class="bgimg-1 w3-padding-64" id="scheme">
+  <div class="w3-row w3-text-black w3-padding-16">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-left-align">
+      <span class="w3-xxlarge" >.json files scheme</span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m10 l8 w3-center w3-img">
+      <img style="width: 100%" src="assets/data_scheme.png">
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-hide-small">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-center">
+        <span class="w3-large">To get the data you need to download youtube videos with the identifiers stored in .json files and extract corresponding frames from them.</span>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+</footer>
+
+</body>
+</html>

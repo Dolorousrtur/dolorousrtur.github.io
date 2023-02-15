@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<title>AzurePeople</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/w3images/mac.jpg");
+  min-height: 100%;
+}
+
+.w3-img {
+  padding: 4px;
+}
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+}
+ 
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 4px;
+   width: 100%;
+}
+
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <!-- <a href="#home" class="w3-bar-item w3-button w3-wide">LOGO</a> -->
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="#home" class="w3-bar-item w3-button">Home</a>
+      <a href="#abstract" class="w3-bar-item w3-button">Abstract</a>
+      <a href="#code" class="w3-bar-item w3-button">Code</a>
+      <a href="#video" class="w3-bar-item w3-button">Video</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">Home</a>
+  <a href="#abstract" onclick="w3_close()" class="w3-bar-item w3-button">Abstract</a>
+  <a href="#code" onclick="w3_close()" class="w3-bar-item w3-button">Code</a>
+  <a href="#video" onclick="w3_close()" class="w3-bar-item w3-button">Video</a>
+  <a href="#links" onclick="w3_close()" class="w3-bar-item w3-button">Links</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-padding-64" id="home">
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l1">&nbsp;</div>
+    <div class="w3-col s10 m10 l10 w3-center">
+      <span class="w3-xxlarge w3-hide-medium w3-hide-small" style="font-size:4.310vw !important">AzurePeople</span>
+      <span class="w3-xxlarge w3-hide-large w3-hide-small"  style="font-size:5.300vw !important">AzurePeople</span>
+      <span class="w3-xlarge w3-hide-large w3-hide-medium">AzurePeople</span>
+      </br>
+    </div>
+    <div class="w3-col s1 m1 l1">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-padding-2 w3-hide-small">&nbsp;</div>
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s3 m2 l2 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Artur Grigorev<sup>1,2*</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Artur Grigorev<sup>1,2*</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Artur Grigorev<sup>1,2*</sup></span>
+    </div>
+    <div class="w3-col s3 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Karim Iskakov<sup>1*</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Karim Iskakov<sup>1*</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Karim Iskakov<sup>1*</sup></span>
+    </div>
+    <div class="w3-col s3 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Anastasia Ianina<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Anastasia Ianina<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Anastasia Ianina<sup>1,2</sup></span>
+    </div>
+    <div class="w3-col s3 m2 l2 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Renat Bashirov<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Renat Bashirov<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Renat Bashirov<sup>1,2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div>
+
+
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s5 m3 l3 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Ilya Zakharkin<sup>1,2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Ilya Zakharkin<sup>1,2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Ilya Zakharkin<sup>1,2</sup></span>
+    </div>
+    <div class="w3-col s5 m3 l2 w3-center">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Alexander Vakhitov<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Alexander Vakhitov<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Alexander Vakhitov<sup>1</sup></span>
+    </div>
+    <div class="w3-col s5 m3 l3 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Victor Lempitsky<sup>1,2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Victor Lempitsky<sup>1,2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Victor Lempitsky<sup>1,2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div>
+
+
+  <div class="w3-row w3-text-black w3-padding-2 w3-hide-small">&nbsp;</div>
+
+  <div class="w3-row w3-text-black">
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+    <div class="w3-col s5 m4 l3 w3-left-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Samsung AI Center Moscow<sup>1</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Samsung AI Center Moscow<sup>1</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Samsung AI Center Moscow<sup>1</sup></span>
+    </div>
+    <div class="w3-col s7 m6 l5 w3-right-align">
+      <span class="w3-large w3-hide-medium w3-hide-small" style="font-size:1.5vw !important">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+      <span class="w3-medium w3-hide-large w3-hide-small" style="font-size:1.8vw !important">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+      <span class="w3-small w3-hide-large w3-hide-medium">Skolkovo Institute of Science and Technology<sup>2</sup></span>
+    </div>
+    <div class="w3-hide-small w3-col s0 m1 l2">&nbsp;</div>
+  </div>
+
+
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m10 l8 w3-center w3-img">
+      <img style="width: 100%" src="assets/azurepeople_teaser.png">
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-center">
+        <span class="w3-large">Figure 1: <b>AzurePeople RGB samples</b></span>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-32">
+    <div class="w3-col m3 l3">&nbsp;</div>
+    <div class="w3-col s6 m3 l3  w3-center">
+      <a href="https://arxiv.org/pdf/2103.03663.pdf">
+        <!-- <img src="assets/projects/pdf.svg" class="img_links img-responsive"> -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 20%" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.826-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784zm-4.9 0h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.555-.658.587-2.034-.062-2.692-.298-.3-.712-.459-1.2-.459zm-.692.783h.496c.473 0 .802.173.915.644.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12zm-2.74-.783h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.095-.291.095-.597 0-.885-.16-.484-.606-.761-1.224-.761zm-.761.732h.546c.235 0 .467.028.576.228.067.123.067.366 0 .489-.109.199-.341.227-.576.227h-.546v-.944z"/></svg>
+        <p></p>
+        <div class="author">Paper</div>
+      </a>
+    </div>
+    <div class="w3-col s6 m3 l3 w3-center">
+      <a href="https://arxiv.org/pdf/1906.08240v2.pdf">
+        <!-- <img src="assets/projects/pdf.svg" class="img_links img-responsive"> -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 20%" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M12 5c3.453 0 5.891 2.797 5.567 6.78 1.745-.046 4.433.751 4.433 3.72 0 1.93-1.57 3.5-3.5 3.5h-13c-1.93 0-3.5-1.57-3.5-3.5 0-2.797 2.479-3.833 4.433-3.72-.167-4.218 2.208-6.78 5.567-6.78zm0-2c-4.006 0-7.267 3.141-7.479 7.092-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.521-5.408-.212-3.951-3.473-7.092-7.479-7.092z"/></svg>
+        <p></p>
+        <div class="author">Data</div>
+      </a>
+    </div>
+    <div class="w3-col m3 l3">&nbsp;</div>
+  </div>
+
+<!-- Code Section -->
+<div class="bgimg-1 w3-padding-64" id="code">
+  <div class="w3-row w3-text-black w3-padding-16">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-left-align">
+      <span class="w3-xxlarge" >About dataset</span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-justify">
+        <span class="w3-large">We collected a dataset of 56 subjects recorded by five synchronous Kinect Azure devices. The maximal horizontal angular parallax between different devices is approximately 90 degreees, the distance to the person from the device is 2-3 meters. Subjects perform a fixed set of motions, with each recording being 5-6 minutes long. Together with RGBD data we provide SMPL-X fits for every frame. To obtain SMPL-X poses, we use a slow optimization-based multiview fitting procedure. We thus optimize the SMPL-X parameters to fit the observations. Essentially, we are extending the SMPLify-X method to process multiview synchronous RGB-D sequences. More details about our SMPL-X fitting are available in the <a href="https://arxiv.org/pdf/2103.03663.pdf">paper.</href></span>
+
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m5 l4 w3-center w3-img">
+        <img style="width: 45%" src="assets/smpl_01.gif">
+        <p></p>
+    </div>
+    <div class="w3-col m5 l4 w3-center w3-img">
+
+        <img style="width: 45%" src="assets/smpl_58.gif">
+        <p></p>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+</div>
+
+<!-- Lookup Table Section -->
+<div class="bgimg-1 w3-padding-64" id="abstract">
+  <div class="w3-row w3-text-black w3-padding-16">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-left-align">
+    <span class="w3-xxlarge" >Lookup Table</span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-justify">
+        <span class="w3-large">All 56 identities from the dataset are presented in the following lookup table. </span>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-padding-4">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col m10 l8 w3-center w3-img">
+      <img style="width: 100%" src="assets/dataset_lookup.png">
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+  <div class="w3-row w3-text-black w3-hide-small w3-padding-4">&nbsp;</div>
+  <div class="w3-row w3-text-black w3-hide-small">
+    <div class="w3-col m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-center">
+        <span class="w3-large">Figure 2: Identities from AzurePeople Dataset.</span>
+    </div>
+    <div class="w3-col m1 l2">&nbsp;</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+</footer>
+
+</body>
+</html>
