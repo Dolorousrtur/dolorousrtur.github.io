@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="saic-project-styles.css">
+  
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+  <!-- jQuery setup -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <title>Point-Based Modeling of Human Clothing</title>
+  
+  <meta property="og:image"
+    content="http://dmitryulyanov.github.io/assets/neural-point-pased-rendering/Shoe_nearest_gt.jpg" />
+  <meta property="og:title" content="Point-Based Modeling of Human Clothing" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="../css/bootstrap-theme.min.css"> -->
+
+  <!-- Google fonts -->
+  <!-- <link href="../css/google-fonts.css" rel="stylesheet" type="text/css"> -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Open+Sans:300italic,400italic,600italic,400,700,300,600"
+    rel="stylesheet" type="text/css">
+
+  <!-- Photoswipe -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.css" rel="stylesheet">
+
+  <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+  </script>
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+  <script>
+    function resizeIframe(obj) {
+      obj.style.height = 0;
+      obj.style.height = (obj.contentWindow.document.body.scrollHeight + 5) + 'px';
+    }
+  </script>
+    
+  <script language="JavaScript">
+    function resize_iframe() {
+      obj = document.getElementById("myiframe")
+
+      obj.style.height = 0;
+      obj.style.height = (obj.contentWindow.document.body.scrollHeight) + 'px';
+
+      // document.getElementById("cf").style.height = document.getElementById("lastimage").height + 8;
+    }
+      // window.onresize=resize_iframe;
+  </script>   
+</head>
+
+<body>
+<!--   <script src="zepto.min.js"></script>
+  <script>
+    window.addEventListener('message', function (event) {
+      if (height = event.data['height']) {
+        $('iframe').css('height', height + 'px')
+      }
+    });
+    // var resizeEvent = new Event('resize');
+    // window.dispatchEvent(resizeEvent);
+  </script> -->
+    
+  <div class="container">
+
+    <!-- ====================================================== -->
+    <!-- ===================== TITLE ========================== -->
+    <!-- ====================================================== -->
+    <center>
+      <div class="title">Point-Based Modeling of Human Clothing</div>
+      <div class="conf">ICCV 2021</div>
+    </center>
+       
+    <p></p>
+      
+    <center>
+      <div class="row row-eq-height" style="margin-bottom: 0px; margin-top: 10px">
+        <!-- <div class="col-sm-12"> -->
+          <div class="col-sm-10 col-sm-offset-1">
+
+              <center>
+                  <div class="col-sm-3" style="margin-bottom: 30px">
+                    <!-- <div class="col-sm-12"> -->
+                    <a href="https://github.com/izakharkin">
+                      <img src="assets/images/ilya_zakharkin.jpg"
+                           class="shadow img_authors img-circle img-responsive">
+                      <div class="author"><span style="font-weight: 600">Ilya Zakharkin*</span></div>
+                    </a>
+                    <!-- </div> -->
+                  </div>
+
+                  <div class="col-sm-3" style="margin-bottom: 30px">
+                    <!-- <div class="col-sm-12"> -->
+                    <a href="https://github.com/makezur">
+                      <img src="assets/images/kirill_mazur.jpg" 
+                           class="shadow img_authors img-circle img-responsive">
+                      <div class="author"><span style="font-weight: 600">Kirill Mazur*</span></div>
+                    </a>
+                    <!-- </div> -->
+                  </div>
+
+                  <div class="col-sm-3" style="margin-bottom: 30px">
+                    <!-- <div class="col-sm-12"> -->
+                    <a href="dolorousrtur.github.io">
+                      <img src="assets/images/artur_grigorev.jpg" 
+                           class="shadow img_authors img-circle img-responsive">
+                      <div class="author"><span style="font-weight: 600">Artur Grigorev</span></div>
+                    </a>
+                    <!-- </div> -->
+                  </div>
+
+                  <div class="col-sm-3" style="margin-bottom: 30px">
+                    <!-- <div class="col-sm-12"> -->
+                    <a href="http://sites.skoltech.ru/compvision/members/vilem/">
+                      <img src="assets/images/victor_lempitsky.png" 
+                           class="shadow img_authors img-circle img-responsive">
+                      <div class="author"><span style="font-weight: 600">Victor Lempitsky</span></div>
+                    </a>
+                    <!-- </div> -->
+                  </div>
+              </center>    
+
+              <!-- <div class="col-sm-4 col-sm-offset-1" style="margin-bottom: 20px"> -->
+                <!-- <div class="col-sm-12"> -->
+                <!-- <a href="https://research.samsung.com/aicenter_moscow"> -->
+                    <!-- <div class="university"><span style="font-weight: 600"> -->
+                        <!-- <sup>1</sup>Samsung AI Center, Moscow</span> -->
+                    <!-- </div> -->
+                <!-- </a> -->
+                <!-- </div> -->
+              <!-- </div> -->
+
+              <!-- <div class="col-sm-6 col-sm-offset-1" style="margin-bottom: 20px"> -->
+                <!-- <div class="col-sm-12"> -->
+                <!-- <a href="https://www.skoltech.ru/en/"> -->
+                    <!-- <div class="university"><span style="font-weight: 600"> -->
+                        <!-- <sup>2</sup>Skolkovo Institute of Science and Technology, Moscow</span> -->
+                    <!-- </div> -->
+                <!-- </a> -->
+                <!-- </div> -->
+              <!-- </div> -->
+
+              <div class="col-sm-6 col-sm-offset-3" style="margin-bottom: 10px; align: center">
+                <!-- <div class="col-sm-12"> -->
+                <div><span style="font-weight: 600; color: #444"><sup>*</sup> denotes equal contribution</span></div>
+                <!-- <div><span style="font-weight: 600; color: #444"><sup>**</sup> currently at Yandex and Skoltech</span></div> -->
+                <!-- </div> -->
+              </div>
+
+        </div>
+      <!-- </div> -->
+      </div>
+    </center>
+      
+    <!-- allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  -->
+    <!-- <div class="row section videoframe"> -->
+      <center>
+<!--         <iframe width="100%" height="60%" src="https://www.youtube.com/embed/lYTzLhy-ybw" frameborder="0"
+          allowfullscreen></iframe> -->
+          <iframe width="846" height="476" 
+                  src="https://www.youtube.com/embed/kFrAu415kDU" 
+                  title="YouTube video player" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+      </center>
+    <!-- </div>-->
+      
+    
+
+    <!-- ====================================================== -->
+    <!-- ===================== TL;DR ======================= -->
+    <!-- ====================================================== -->
+
+    <div class="row section">
+      <p></p>
+      <big><b>TL;DR:</b> We present a new point-based approach for 3D clothing modeling. We train a draping network based on cloud transformer and get low-dimensional latent space of garment style embeddings - outfit codes. With these we are able to reconstruct clothing geometry (point cloud) given a single image, as well as clothing appearance given a video using neural point-based graphics.</big>
+      <p></p>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- ===================== LINKS ========================== -->
+    <!-- ====================================================== -->
+    <center>
+      <div class="row section" style="margin-bottom: -12px">
+        <div class="col-sm-12">
+          <!-- <div class="col-sm-12 center"> -->
+          <div class="col-sm-4" style="margin-bottom: 12px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="https://arxiv.org/abs/2104.08230">
+              <!-- <img src="assets/projects/pdf.svg" class="img_links img-responsive"> -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M11.363 2c4.155 0 2.637 6 2.637 6s6-1.65 6 2.457v11.543h-16v-20h7.363zm.826-2h-10.189v24h20v-14.386c0-2.391-6.648-9.614-9.811-9.614zm4.811 13h-2.628v3.686h.907v-1.472h1.49v-.732h-1.49v-.698h1.721v-.784zm-4.9 0h-1.599v3.686h1.599c.537 0 .961-.181 1.262-.535.555-.658.587-2.034-.062-2.692-.298-.3-.712-.459-1.2-.459zm-.692.783h.496c.473 0 .802.173.915.644.064.267.077.679-.021.948-.128.351-.381.528-.754.528h-.637v-2.12zm-2.74-.783h-1.668v3.686h.907v-1.277h.761c.619 0 1.064-.277 1.224-.763.095-.291.095-.597 0-.885-.16-.484-.606-.761-1.224-.761zm-.761.732h.546c.235 0 .467.028.576.228.067.123.067.366 0 .489-.109.199-.341.227-.576.227h-.546v-.944z"/></svg>
+              <p></p>
+              <div class="author">Paper</div>
+            </a>
+            <!-- </div> -->
+          </div>
+          <div class="col-sm-4" style="margin-bottom: 12px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="https://youtu.be/kFrAu415kDU">
+              <svg xmlns="http://www.w3.org/2000/svg" class="img_links img-responsive" viewBox="0 0 24 24"><path d="M10 9.333l5.333 2.662-5.333 2.672v-5.334zm14-4.333v14c0 2.761-2.238 5-5 5h-14c-2.761 0-5-2.239-5-5v-14c0-2.761 2.239-5 5-5h14c2.762 0 5 2.239 5 5zm-4 7c-.02-4.123-.323-5.7-2.923-5.877-2.403-.164-7.754-.163-10.153 0-2.598.177-2.904 1.747-2.924 5.877.02 4.123.323 5.7 2.923 5.877 2.399.163 7.75.164 10.153 0 2.598-.177 2.904-1.747 2.924-5.877z"/></svg>
+              <p></p>
+              <div class="author">Video</div>
+            </a>
+            <!-- </div> -->
+          </div>
+          <div class="col-sm-4" style="margin-bottom: 12px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="https://github.com/Dolorousrtur/point_based_clothing">
+              <!-- <img src="assets/projects/github.svg" class="img_links img-responsive">-->
+              <svg xmlns="http://www.w3.org/2000/svg"  class="img_links img-responsive" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <p></p>
+              <div class="author">Code</div>
+            </a>
+            <!-- </div> -->
+          </div>
+
+          <!-- <div class="col-sm-3" style="margin-bottom: 12px">
+            <a href="" >
+                <img src="/assets/projects/github.svg" class="img_links img-responsive">
+                <div class="author">Video</div>
+            </a>
+        </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </center>
+
+    <!-- ====================================================== -->
+    <!-- ===================== ABSTRACT ======================= -->
+    <!-- ====================================================== -->
+    <div class="row section">
+      <!-- <div class="col-xs-8 col-xs-offset-2 text-justify"> -->
+      <div class="section_title">Abstract</div>
+      <p>We propose a new approach to human clothing modeling based on point clouds. Within this approach, we learn a deep model that can predict point clouds of various outfits, for various human poses, and for various human body shapes. Notably, outfits of various types and topologies can be handled by the same model. Using the learned model, we can infer the geometry of new outfits from as little as a single image, and perform outfit retargeting to new bodies in new poses. We complement our geometric model with appearance modeling that uses the point cloud geometry as a geometric scaffolding and employs neural point-based graphics to capture outfit appearance from videos and to re-render the captured outfits. We validate both geometric modeling and appearance modeling aspects of the proposed approach against recently proposed methods and establish the viability of point-based clothing modeling.</p>
+    </div>
+
+    <!-- ====================================================== -->
+    <!-- ===================== Main idea ======================= -->
+    <!-- ====================================================== -->
+    <div class="row section">
+      <!-- <div class="col-xs-8 col-xs-offset-2 text-justify"> -->
+      <div class="section_title">Main idea</div>
+      <p>
+        Our method could be viewed as 3 parts:
+        <p><ol>
+          <li>Draping network training and Outfit code space learning</li>
+          <li>Single-image outfit geometry reconstruction</li>
+          <li>Neural point-based appearance modeling</li>
+        </ol></p>
+      </p>
+    </div>
+    
+    <div class="row section">
+        <div class="subsection_title">Draping network training</div>
+        <p>The draping network takes the latent code of a clothing outfit, the subset of vertices of an SMPL body mesh, and predicts the point cloud of the clothing outfit adapted to the body shape and the body pose. We use the recently proposed <a href="https://saic-violet.github.io/cloud-transformers/">Cloud Transformer</a> architecture to perform the mapping.</p>
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/outfit-code-interpolation.gif" alt="Random walks in the latent outfit space. 
+                  We change the Z vector and fix the other input to a certain pose and to a certain body shape." width="50%">
+                <figcaption>
+                    Random walks in the latent outfit space: Z vector changes while the body shape and pose are fixed
+                </figcaption>
+            </figure>
+        </center></div>
+        <p>We train the model by fitting it to a <a href="https://chalearnlap.cvc.uab.cat/dataset/38/description/">Cloth3D</a> synthetic dataset of physically simulated clothing using <a href="https://arxiv.org/abs/1707.05776">Generative Latent Optimization</a> approach. After fitting, the outfits in the training dataset all get latent codes.</p>
+    </div>
+    
+    <div id="slider"></div>
+    
+    <div class="row section">
+        <div class="subsection_title">Single-image outfit geometry reconstruction</div>
+        <p>Given an input image, its segmentation, and its SMPL mesh fit, we can find the latent code of the outfit. The code is obtained by optimizing the mismatch between the segmentation and the projection of the point cloud. The draping network remains frozen during this process, only the outfit code vector is being changed (we are "searching" in the latent space).</p>
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/image-based-fitting.png" 
+                     alt="Fitting an outfit code from a single image (its segmentation mask)" 
+                     width="60%">
+                <figcaption>
+                    Fitting an outfit code from a single image (its segmentation mask)
+                </figcaption>
+            </figure>
+        </center></div>
+        
+        
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/3d_comparison.png" 
+                     alt="Comparison of image-based outfit code fitting (geometry reconstruction) on AzurePeople dataset"
+                     width="50%"
+                     align="left">
+<!--                 <figcaption>
+                    Comparison of image-based outfit code fitting (geometry reconstruction) on AzurePeople dataset
+                </figcaption> -->
+            </figure>
+<!--             <img src="assets/images/line1.png" height="300px" align="left"> -->
+            <figure>
+                <img src="assets/images/inthewild.png" 
+                     alt="Outfits modeled from single in-the-wild images using our model are retargeted to novel poses"
+                     width="50%"
+                     align="right">
+<!--                 <figcaption>
+                    Outfits modeled from single in-the-wild images using our model are retargeted to novel poses
+                </figcaption> -->
+            </figure>
+        </center></div>
+        <p><center>
+            Results of clothing geometry reconstruction from unseen photos in unseen body poses. <br>
+            <b>Left:</b> Comparison on AzurePeople dataset. 
+            <b>Right:</b> Reconstruction from in-the-wild internet images.
+        </center></p>
+    </div>
+    
+    <div class="row section">
+        <div class="subsection_title">Neural point-based appearance modeling</div>
+        <p>We expand our geometric model further to include appearance modeling. We use the neural point-based graphics approach. In more detail, we assign each outfput point a neural appearance descriptor and introduce a rendering network. We then fit the parameters of this network as well as the appearance descriptors to a video of a person wearing a certain outfit. The appearance fitting is performed after we fit the clothing geometry.</p>
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/npbg-clothing.png" 
+                     alt="Outfit appearance modeling utilizing the Neural Point-Based Graphics" width="60%">
+                <figcaption>
+                    Outfit appearance modeling utilizing the <a href="https://saic-violet.github.io/npbg/">
+                    Neural Point-Based Graphics</a>
+                </figcaption>
+            </figure>
+        </center></div>
+        
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/rgb_azure.gif" 
+                     alt="Comparison of image-based outfit code fitting (geometry reconstruction) on AzurePeople dataset"
+                     width="50%"
+                     align="left">
+<!--                 <figcaption>
+                    Comparison of image-based outfit code fitting (geometry reconstruction) on AzurePeople dataset
+                </figcaption> -->
+            </figure>
+<!--             <img src="assets/images/line1.png" height="300px" align="left"> -->
+            <figure>
+                <img src="assets/images/rgb_psp.gif" 
+                     alt="Outfits modeled from single in-the-wild images using our model are retargeted to novel poses"
+                     width="50%"
+                     align="right">
+<!--                 <figcaption>
+                    Outfits modeled from single in-the-wild images using our model are retargeted to novel poses
+                </figcaption> -->
+            </figure>
+        </center></div>
+        <p><center>
+            Results of clothing neural rendering (apperance modeling) from unseen videos in unseen body poses.<br>
+            <b>Left:</b> AzurePeople dataset. 
+            <b>Right:</b> PeopleSnapshot dataset.
+        </center></p>
+    </div>
+
+    <div class="row section">
+        <div class="subsection_title">Virtual try-on</div>
+        <p>Given an input video with SMPL mesh calculated for each frame, our model is able to retarget and repose the clothing learned from any other video. Our approach could be used for virtual try-on on images as well (more simple case than a video).</p>
+        <div class="row section"><center>
+            <figure>
+                <img src="assets/images/white.png" 
+                     width="13%"
+                     align="left">
+            </figure>
+            <figure>
+                <img src="assets/images/vton1.gif" 
+                     alt="Virtual try-on: 1st person"
+                     width="25%"
+                     align="left">
+            </figure>
+            <figure>
+                <img src="assets/images/vton2.gif" 
+                     alt="Virtual try-on: 2nd person"
+                     width="23.5%"
+                     align="left">
+            </figure>
+            <figure>
+                <img src="assets/images/vton3.gif" 
+                     alt="Virtual try-on: 3rd person"
+                     width="23.5%"
+                     align="left">
+            </figure>
+        </center></div>
+        <p></p>
+    </div>
+
+  <!-- <div class="footer"><center>VISION, LEARNING AND TELEPRESENCE LAB</center></div> -->
+  <!-- <div class="footer"><center>SAMSUNG AI CENTER MOSCOW</center></div> -->
+
+</body>
+
+</html>

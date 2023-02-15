@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <link rel="icon" href="files/ico.png">
+      <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script src="js/jquery-3.4.1.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="cbi.css">
+<!--      <link rel="stylesheet" href=".css">-->
+      <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Coordinate-based Texture Inpainting for Pose-Guided Image Generation</title>
+<!--      <meta property="og:image" content="https://raw.githubusercontent.com/DmitryUlyanov/deep-image-prior/master/data/teaser_compiled.jpg"/>-->
+      <meta property="og:title" content="Coordinate-based Texture Inpainting for Pose-Guided Image Generation" />
+
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"><!-- <link rel="stylesheet" href="../css/bootstrap-theme.min.css"> -->
+
+      <!-- Google fonts -->
+      <!-- <link href="../css/google-fonts.css" rel="stylesheet" type="text/css"> -->
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Open+Sans:300italic,400italic,600italic,400,700,300,600" rel="stylesheet" type="text/css">
+
+      <!-- Photoswipe -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.css" rel="stylesheet">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.css" rel="stylesheet">
+
+      <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+        TeX: { equationNumbers: { autoNumber: "AMS" } },
+      });
+      </script>
+
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  <script>
+  function resizeIframe(obj) {
+    obj.style.height = 0;
+    obj.style.height = (obj.contentWindow.document.body.scrollHeight + 5) + 'px';
+  }
+
+
+
+
+  
+</script>
+    <script language="JavaScript">
+
+//      function resize_iframe()
+//      {
+//        obj = document.getElementById("myiframe")
+//
+//        obj.style.height = 0;
+//        obj.style.height = (obj.contentWindow.document.body.scrollHeight) + 'px';
+//        
+//        document.getElementById("cf").style.height = document.getElementById("lastimage").height + 8;
+//      }
+//      window.onresize=resize_iframe; 
+      
+
+    </script>
+
+  </head>
+
+  <body>
+    <!-- <script src="zepto.min.js"></script> -->  
+  <script>
+    window.addEventListener('message', function(event) {
+      if(height = event.data['height']) {
+        $('iframe').css('height', height + 'px')
+      }
+    });
+    
+
+    // var resizeEvent = new Event('resize');
+    // window.dispatchEvent(resizeEvent);
+    
+  </script>
+  <div class="container">
+
+
+    <!-- ====================================================== -->
+    <!-- ===================== TITLE ========================== -->
+    <!-- ====================================================== -->
+    <center>
+          <div class="title">Coordinate-based Texture Inpainting for Pose-Guided Image Generation</div>
+          <div class="subtitle">CVPR 2019 paper</div>
+    </center>
+   
+
+ <center>
+      <div class="row row-eq-height" style="margin-bottom: 10px">
+        <!-- <div class="col-sm-12"> -->
+        <!-- <div class="col-sm-16"> -->
+          <div class="col" style="margin-bottom: 10px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="https://dolorousrtur.github.io/">
+                <div class="author"><span style="font-weight: 600; color: #444">Artur Grigorev</span></div>
+            </a>
+            <!-- </div> -->
+          </div>
+          <div class="col" style="margin-bottom: 10px">
+            <!-- <div class="col-sm-12"> -->
+
+             <a href="mailto:a.sevastopol@samsung.com">
+                 <div class="author"><span style="font-weight: 600; color: #444">Artem Sevastopolsky</span></div>
+            <!-- </div> -->
+             </a>
+          </div>
+
+          <div class="col" style="margin-bottom: 10px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="mailto:a.vakhitov@samsung.com">
+                <div class="author"><span style="font-weight: 600; color: #444">Alexander Vakhitov</span></div>
+            <!-- </div> -->
+            </a>
+          </div>
+          <div class="col" style="margin-bottom: 10px">
+            <!-- <div class="col-sm-12"> -->
+            <a href="mailto:v.lempitsky@samsung.com">
+                <div class="author"><span style="font-weight: 600; color: #444">Victor Lempitsky</span></div>
+            </a>
+            <!-- </div> -->
+          </div>
+
+          <!-- <div class="col-sm-3 col-sm-offset-2" style="margin-bottom: 10px"> -->
+            <!-- <div class="col-sm-12"> -->
+            <!-- <a href="https://research.samsung.com/aicenter_moscow"> -->
+            <!-- <div class="university"><span style="font-weight: 600; color: #444"><sup>1</sup> Samsung AI Center, Moscow</span></div> -->
+            <!-- </a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="col-sm-6" style="margin-bottom: 10px"> -->
+            <!-- <div class="col-sm-12"> -->
+            <!-- <a href="https://www.skoltech.ru/en/"> -->
+            <!-- <div class="university"><span style="font-weight: 600; color: #444"><sup>2</sup> Skolkovo Institute of Science and Technology, Moscow</span></div> -->
+            <!-- </a> -->
+            <!-- </div> -->
+          <!-- </div> -->
+
+        <!-- </div> -->
+      <!-- </div> -->
+    </div>
+    </center>
+
+
+  <!-- ====================================================== -->
+  <!-- ===================== TEASER ============== -->
+  <!-- ====================================================== -->
+
+    <br>
+  <center>
+    <div class="container section center row-eq-height">
+      <div class="row center col-sm-15" style="margin-top: 10px">
+          <center>
+          <div class="row_out">
+              <div class="row">
+              <div class="column_out">
+                  <div class="column">
+                    Source Image
+                  </div>
+                  <div class="column">
+                    Texture (<b><i>color</i></b>-inpainted)
+                  </div>
+                  <div class="column">
+                      Texture (<b><i>coord</i></b>-inpainted)
+                  </div>
+              </div>
+              <div class="column_out">
+                  <div class="column">
+                    Source Image
+                  </div>
+                  <div class="column">
+                    Texture (<b><i>color</i></b>-inpainted)
+                  </div>
+                  <div class="column">
+                    Texture (<b><i>coord</i></b>-inpainted)
+                  </div>
+              </div>
+            </div>
+          <div class="row_out">
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/0_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/0_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/0_coord.png"  style="width:100%">
+                  </div>
+              </div>
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/3_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/3_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/3_coord.png"  style="width:100%">
+                  </div>
+              </div>
+            </div>
+            <div class="row_out">
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/5_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/5_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/5_coord.png"  style="width:100%">
+                  </div>
+              </div>
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/11_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/11_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/11_coord.png"  style="width:100%">
+                  </div>
+              </div>
+            </div>
+            <div class="row_out">
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/6_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/6_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/6_coord.png"  style="width:100%">
+                  </div>
+              </div>
+              <div class="column_out">
+                  <div class="column">
+                    <img src="files/teaser/9_source.png" style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/9_rgb.png"  style="width:100%">
+                  </div>
+                  <div class="column">
+                    <img src="files/teaser/9_coord.png"  style="width:100%">
+                  </div>
+              </div>
+            </div>
+            </div>
+          </center>
+      </div>
+    </div>
+  </center>
+
+
+
+
+
+    <!-- ====================================================== -->
+    <!-- ===================== ABSTRACT ======================= -->
+    <!-- ====================================================== -->
+    <div class="container section">
+      <!-- <div class="col-xs-8 col-xs-offset-2 text-justify"> -->
+      <div class="section_title">Abstract</div>
+      <p align="justify"> <!-- style="text-indent: 30px" -->
+          We present a new deep learning approach to pose-guided resynthesis of human photographs. At the heart of the new approach is the estimation of the complete body surface texture based on a single photograph. Since the input photograph always observes only a part of the surface, we suggest a new inpainting method that completes the texture of the human body. Rather than working directly with colors of texture elements, <b>the inpainting network estimates an appropriate source location in the input image for each element of the body surface.</b> This correspondence field between the input image and the texture is then further warped into the target image coordinate frame based on the desired pose, effectively establishing the correspondence between the source and the target view <b>even when the pose change is drastic</b>. The final convolutional network then uses the established correspondence and all other available information to synthesize the output image using a fully-convolutional architecture with deformable convolutions. We show the state-of-the-art result for pose-guided image synthesis. Additionally, we demonstrate the performance of our system for garment transfer and pose-guided face resynthesis.
+      </p>
+      <!-- </div> -->
+    </div>
+
+
+    <center>
+    <div class="row section" style="margin-bottom: -12px">
+      <!-- <div class="col-sm-12 col-sm-offset-1"> -->
+      <div class="col-sm-12 center">
+        <div class="col-sm-4" style="margin-bottom: 12px">
+          <!-- <div class="col-sm-12"> -->
+            <a href="https://arxiv.org/abs/1811.11459">
+                <img src="files/pdf.svg" class="img_links img-responsive">
+                <div class="author">Paper</div>
+            </a>
+          <!-- </div> -->
+        </div>
+        <div class="col-sm-4" style="margin-bottom: 12px">
+          <!-- <div class="col-sm-12"> -->
+            <a href="files/SupMat.pdf">
+                <img src="files/pdf.svg" class="img_links img-responsive" >
+                <div class="author">Supmat</div>
+            </a>
+          <!-- </div> -->
+        </div>
+        <div class="col-sm-4" style="margin-bottom: 12px">
+            <a href="https://github.com/dolorousrtur/coordinate_based_inpainting">
+              <svg xmlns="http://www.w3.org/2000/svg"  class="img_links img-responsive" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              <div class="author">Code</div>
+            </a>
+            <!-- </div> -->
+          </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  </center>
+
+
+<!-- 
+    <div class="col center col-sm-12" style="margin-bottom: 60px">
+        <center>
+        <img src="files/cvpr.png" class="img-responsive">
+        </center>
+        <span style="font-size:15px"><i>Renderings produced by multiple textured neural avatars (for all people in our study). All renderings are produced from the new viewpoints unseen during training</i>.
+    </div> -->
+
+
+    <!-- ====================================================== -->
+    <!-- ===================== Main idea ======================= -->
+    <!-- ====================================================== -->
+<!--
+    <div class="row section">
+      <div class="section_title">Main idea</div>
+      <p align="justify"> 
+        TODO
+      </p>
+
+      <p align="justify">
+      TODO:
+      <div class="col center col-sm-12" style="margin-bottom: 30px">
+          <center> 
+              TODO: GIF
+          </center>
+      </div>
+      </p>
+      
+
+    </div>
+-->
+    <div class="container section">
+    <!-- <div class="col-xs-8 col-xs-offset-2 text-justify"> -->
+    <div class="section_title">Main idea</div>
+    <p align="justify"> <!-- style="text-indent: 30px" -->
+        Our method performs human image reconstruction via texture inpainting. We use <a href='http://densepose.org/'>DensePose</a> approach to estimate UV renders, that is mappings between pixel positions in image (source or target) space and texture space. Once source image is mapped into the texture space, full texture is estimated and then warped onto the target space to be refined. Thus, the pipeline consists of two convolutional networks: inpainter <i>f</i> that reconstructs full texture from a partially visible one, while refiner <i>g</i> processes warped onto the target space texture to generate new view. 
+        <br>
+        <br>
+        The main novelty of the approach lies in the texture estimation part. 
+        Rather than working directly with colors of texture elements, <b>the inpainting network works with coordinates of the texture elements in the source view</b>. Hence, <b>it learns to employ natural symmetries of human body</b> to restore missing texture parts (i.e. to use pixels located at the position of left eye to hallucinate right one), therefore making resulting textures sharper and more detailed in comparison to color-based inpainting.
+    </p>
+<!--
+    <iframe width="420" height="500"
+        src="https://youtube.com/embed/vVALsewSzaU" allowfullscreen>
+    </iframe>
+-->
+    <img src="files/idea.gif" width='90%'/>
+      <!-- </div> -->
+    </div>
+    
+
+  
+    
+
+    <!-- ====================================================== -->
+    <!-- ============== Comparison ============================ -->
+    <!-- ====================================================== -->
+    <div class="container section">
+    <div class="section_title">Comparison with other methods</div>
+
+    <p align="justify">
+        To evaluate our method we used <a href=http://mmlab.ie.cuhk.edu.hk/projects/DeepFashion.html>Deepfashion</a> dataset and same data splits as in other state-of-the-art works (<a href='http://densepose.org/'>1</a>,<a href=https://github.com/AliaksandrSiarohin/pose-gan>2</a>) consisting of 140,110 training and 8,670 test pairs, where each part is two images of same person in different poses. Below you can see qualitative comparison of our method to the other works.
+    </p>
+    <br>
+
+    <center>
+    <div class="row">
+          <div class="column_sbs_title">
+              <b>Source Image</b>
+          </div>
+          <div class="column_sbs_title">
+              <b>GT</b>
+          </div>
+          <div class="column_sbs_title">
+              <a href='http://densepose.org/'><b>DPT</b></a>
+          </div>
+          <div class="column_sbs_title">
+              <a href='https://github.com/AliaksandrSiarohin/pose-gan'><b>DSC</b></a>
+          </div>
+          <div class="column_sbs_title">
+              <a href='https://github.com/CompVis/vunet'><b>VUnet</b></a>
+          </div>
+          <div class="column_sbs_title">
+              <b>Ours</b>
+          </div>
+          
+    </div>
+    </center>
+    <div class="sidebyside row">
+    </div>
+        
+    
+    <center class="button_row row">
+
+    </center>
+
+        
+    <div>
+
+
+    <script src="js/sidebyside.js"></script>
+    
+    </div>
+        <div class=whitespace></div>
+    
+
+    <!-- ====================================================== -->
+    <!-- ============== Garment Transfer ============================ -->
+    <!-- ====================================================== -->
+    
+    <div class="container section">
+    <div class="section_title">Garment Transfer</div>
+        
+    <p align="justify"> <!-- style="text-indent: 30px" -->
+        By slightly modifying our pipeline, we can use it as a garment transfer (virtual try-on) system. Here along with warped onto target space texture we pass masked ground truth of the target image into refiner <it>g</it> (revealing only face and hair). The modifyed network has quickly learned to copy revealed areas to the predicted image while seamlessly merging it with remaining body.
+        <br>
+        Choose model and cloth images in the scrollbars below to see the result of virtual try-on. 
+    </p>
+    <br>
+    <center>
+    <div class="container">
+        <div class="row">
+            <!-- "Scrollbars" -->
+            <div class="col y0d_out">
+                <div class='y0d wrapper' id='model_scroll' style='width: auto'></div>
+            </div>
+            <div class="col y1d_out">
+                <div class='y1d wrapper' id='cloth_scroll' style='width: auto'></div>
+            </div>
+            <div class="col y2d">
+                
+            </div>
+            <div class="w-100"></div>
+            <!-- selected images -->
+            <div class="col y0">
+                <img id="img_person",  class="img-fluid img-thumbnail">
+            </div>
+            <div class="col y1">
+                <img id="img_clothing" class="img-fluid img-thumbnail">
+            </div>
+            <div class="col y2">
+                <img id="img_redressed" class="img-fluid img-thumbnail">
+            </div>
+            <div class="w-100"></div>
+            <!-- labels -->
+            <div class="col y0d"><h2>Model</h2></div>
+            <div class="col y1d"><h2>Cloth</h2></div>
+            <div class="col y2d"><h2>Try-on</h2></div>
+        </div>
+    </div>
+    </center>
+    <script src="js/tryon.js"></script>
+    <script src="js/scroll.js"></script>        
+    
+
+    </div>
+        
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+
+      function change_height_cf(el) {
+        if (el.height > 0) {
+               document.getElementById("cf").style.height = el.height + 8;
+        };
+      };
+      
+
+      
+    </script>
+    
+
+   <!-- photoswipe -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+
+
+    <!-- <script src="img-gallery.js"></script> -->
+    <!-- Google Analytics -->
+<!--     <script type="text/javascript">
+      document.getElementById("cf").style.height = document.getElementById("lastimage").height + 8;
+    </script> -->
+  <!-- <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview', {
+      'page': '{{ site.baseurl }}{{ page.url }}',
+      'title': '{{ page.title | replace: "'", "\\'" }}'
+    });
+  </script> -->
+  <!-- End Google Analytics -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+              try {
+                  w.yaCounter41551219 = new Ya.Metrika({
+                      id:41551219,
+                      clickmap:true,
+                      trackLinks:true,
+                      accurateTrackBounce:true,
+                      webvisor:true
+                  });
+              } catch(e) { }
+          });
+
+          var n = d.getElementsByTagName("script")[0],
+              s = d.createElement("script"),
+              f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+          if (w.opera == "[object Opera]") {
+              d.addEventListener("DOMContentLoaded", f, false);
+          } else { f(); }
+      })(document, window, "yandex_metrika_callbacks");
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/41551219" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        
+    
+
+</body>
+</html>
+ 
