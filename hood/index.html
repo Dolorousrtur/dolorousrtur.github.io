@@ -1,110 +1,407 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics</title>
-        <link rel="stylesheet" href="../../css/w3.css">
-        <link rel="stylesheet" href="../../css/index.css">
-        <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-              crossorigin="anonymous">
-        <meta name="keywords" content="avatar, computer vision, paper, research, garments, clothing"/>
-    </head>
-    <body>
-        <br/>
-        <br/>
-        <div class="w3-container" id="paper">
-            <div class="w3-content" style="max-width:850px">
-                <h2 align="center" id="title"><b>HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics</b></h2>
-                <br/>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics.">
+  <meta name="keywords" content="avatar, computer vision, paper, research, garments, clothing"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics</title>
 
-                <p align="center" class="center_text" id="authors">
-                    <a target="_blank" href="https://dolorousrtur.github.io/">Artur Grigorev</a><sup>1,2</sup>
-                    &nbsp;&nbsp;
-                    <a target="_blank" href="https://n.ethz.ch/~bthomasz/index.html">Bernhard Thomaszewski</a><sup>1</sup>
-                    &nbsp;&nbsp;
-                    <a target="_blank" href="https://ps.is.mpg.de/~black">Michael J. Black</a><sup>3</sup>
-                    &nbsp;&nbsp;
-                    <a target="_blank" href="https://ait.ethz.ch/people/hilliges/">Otmar Hilliges</a><sup>1</sup>
-                    &nbsp;&nbsp;
-                </p>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-                <p class="center_text" align="center">
-                    <sup>1</sup>ETH Zürich
-                    &nbsp;&nbsp;<br>
-                    <sup>2</sup>Max Planck ETH Center for Learning Systems
-                    &nbsp;&nbsp;<br>
-                    <sup>3</sup>Max Planck Institute for Intelligent Systems, Tübingen, Germany
-                    &nbsp;&nbsp;<br>
-                </p>
-                <br>
-                <br>
-                <br>
-                <!-- <h3 class="w3-left-align" id="intro"><b>Video</b></h3> -->
+    function gtag() {
+      dataLayer.push(arguments);
+    }
 
-                <p>
+    gtag('js', new Date());
 
-<iframe width="850" height="480" src="https://www.youtube.com/embed/cBttMDPrUYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
 
-                <p/>
-                <br>
-                <br>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-                <h3 class="w3-left-align" id="intro"><b>Abstract</b></h3>
-                <p class="w3-justify">
-                    We propose a method that leverages graph neural
-                    networks, multi-level message passing, and unsupervised
-                    training to enable real-time prediction of realistic clothing
-                    dynamics. 
-                    <br><br>
-                    Whereas existing methods based on linear blend
-                    skinning must be trained for specific garments, our method
-                    is agnostic to body shape and applies to tight-fitting garments as well as loose, free-flowing clothing. Our method
-                    furthermore handles changes in topology (e.g., garments
-                    with buttons or zippers) and material properties at inference time. 
-                    <br><br>
-                    As one key contribution, we propose a hierarchical message-passing scheme that efficiently propagates stiff
-                    stretching modes while preserving local detail. We empirically show that our method outperforms strong baselines
-                    quantitatively and that its results are perceived as more realistic than state-of-the-art methods
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
 
-                </p>
-                <br>
-
-                <h3 class="w3-left-align" id="publication"><b>Links</b></h3>
-                <div class="w3-row-padding w3-padding-16 w3-center" id="links">
-                    <div class="w3-third">
-                        <a href="https://arxiv.org/abs/2212.07242" target="__blank">
-                        <img src="assets/pdf.svg" style="width:30%">
-                        <p>Paper</p>
-                        </a>
-                    </div>
-                    <div class="w3-third">
-                        <a href="assets/suppmat.pdf" target="__blank">
-                        <img src="assets/pdf.svg" style="width:30%">
-                        <p>Supplementary</p>
-                        </a>
-                    </div>
-                    <div class="w3-third">
-                        <img src="assets/github.png" style="width:30%">
-                        <p>Code (TBD)</p>
-                    </div>
-                </div>          
-                <h3 class="w3-left-align" id="cite"><b>Cite</b></h3>
-                <pre class="w3-panel w3-leftbar w3-light-grey" style="white-space: pre-wrap; font-family: monospace; font-size: 12px">                
-@article{grigorev2022hood,
-    title={HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics},
-    author={Grigorev, Artur and Thomaszewski, Bernhard and Black, Michael J and Hilliges, Otmar},
-    journal={arXiv preprint arXiv:2212.07242},
-    year={2022}
-} 
-                </pre>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
 
 
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dolorousrtur.github.io/">Artur Grigorev</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://n.ethz.ch/~bthomasz/index.html">Bernhard Thomaszewski</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ps.is.mpg.de/~black">Michael J. Black</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ait.ethz.ch/people/hilliges/">Otmar Hilliges</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ETH Zürich,</span>
+            <span class="author-block"><sup>2</sup>Max Planck ETH Center for Learning Systems</span>
+            <span class="author-block"><sup>3</sup>Max Planck Institute for Intelligent Systems, Tübingen, Germany</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2212.07242"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="static/suppmat.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supmat</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=cBttMDPrUYY"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/dolorousrtur/hood"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (TBD)</span>
+                  </a>
+              </span>
 
             </div>
+
+          </div>
         </div>
-        <br/>
-        <br/>
-    </body>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/200_public_teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        By training just one model to mimic behaviour of fabric, we enable it to generalize to a vide variety of garments including unseen ones. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We propose a method that leverages graph neural
+            networks, multi-level message passing, and unsupervised
+            training to enable real-time prediction of realistic clothing
+            dynamics. 
+            <br><br>
+            Whereas existing methods based on linear blend
+            skinning must be trained for specific garments, our method
+            is agnostic to body shape and applies to tight-fitting garments as well as loose, free-flowing clothing. Our method
+            furthermore handles changes in topology (e.g., garments
+            with buttons or zippers) and material properties at inference time. 
+            <br><br>
+            As one key contribution, we propose a hierarchical message-passing scheme that efficiently propagates stiff
+            stretching modes while preserving local detail. We empirically show that our method outperforms strong baselines
+            quantitatively and that its results are perceived as more realistic than state-of-the-art methods
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video.
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/cBttMDPrUYY?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div> 
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/videos/200_public_method.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            We extent the graph-based message-passing architecture of <a href="https://sites.google.com/view/meshgraphnets">MeshGraphNets</a> with hierarchical component. 
+            Several levels of long-range edges allow the signal from each garment node to propagate father enabling the model to better model long-range dependencies in large garments. 
+          </p>
+        </div>
+        <!--/ Method. -->
+
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Dynamic Topology. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Dynamic Topology</h2>
+          <video id="unzip_video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/202_public_unzip.mp4"
+                    type="video/mp4">
+          </video>
+          <p>
+            Its' graph-based nature allows HOOD to model garments with changing topology by toggling specific edges in the garment mesh.
+          </p>
+        </div>
+      </div>
+      <!--/ Dynamic Topology. -->
+
+      <!-- Local Material. -->
+      <div class="column">
+        <h2 class="title is-3">Local Material</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="multimat-video" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/203_public_multimat.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              By controlling local material parameters we can model garments make of different fabrics.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Local Material. -->
+
+
+
+
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" id="results01" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/01.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results02" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/02.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results03" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/03.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results04" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/04.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results05" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/05.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results06" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/06.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="has-text-centered"><a href="https://drive.google.com/drive/folders/1o7GHiiQtwtIe2xmdcZPu1r6tOI1uimIv?usp=sharing">More here</a></div>
+    </div>
+  </div>
+</section> 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparisons</h2>
+
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Dynamic Topology. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Against <a href="http://mslab.es/projects/SNUG/">SNUG</a></h3>
+          <video id="vs_snug" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/vs_snug.mp4"
+                    >
+          </video>
+          <div class="has-text-centered"><a href="https://drive.google.com/drive/folders/1bMh-fxa8IE0RecggIBWzWZjlLWUXVmQP?usp=sharing">More here</a></div>          
+        </div>
+      </div>
+      <!--/ Dynamic Topology. -->
+
+
+      <!-- Local Material. -->
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Against <a href="http://mslab.es/projects/SelfSupervisedGarmentCollisions/">SSCH</a></h3>
+
+          <video id="vs_ssch" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/vs_ssch.mp4"
+                    >
+          </video>  
+          <div class="has-text-centered"><a href="https://drive.google.com/drive/folders/1hCnHzQ-8m5sIw1uMuVC9Arb3krOVkeny?usp=sharing">More here</a></div>        
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="content">
+          <h3 class="title is-5">Against <a href="http://graphics.berkeley.edu/resources/ARCSim/#:~:text=ArcSim%20is%20a%20simulation,detail%20of%20the%20simulated%20objects.">ARCSIM</a></h3>
+
+          <video id="vs_arcsim" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/vs_arcsim.mp4"
+                    >
+          </video>          
+          <div class="has-text-centered"><a href="https://drive.google.com/drive/folders/1Exb-G440dQnPSHjhw6vEPQswGWG_wmdi?usp=sharing">More here</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{grigorev2022hood,
+      title={HOOD: Hierarchical Graphs for Generalized Modelling of Clothing Dynamics},
+      author={Grigorev, Artur and Thomaszewski, Bernhard and Black, Michael J and Hilliges, Otmar},
+      journal={arXiv preprint arXiv:2212.07242},
+      year={2022}
+  } </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2212.07242">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/dolorousrtur/hood" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This webpage is built with the template from <a
+              href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>. We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a>> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
+
