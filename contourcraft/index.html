@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ContourCraft: Learning to Resolve Intersections in Neural Multi-Garment Simulations">
+  <meta name="keywords" content="avatar, computer vision, computer graphics, paper, research, garments, clothing"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ContourCraft: Learning to Resolve Intersections in Neural Multi-Garment Simulations</title>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ContourCraft: Learning to Resolve Intersections in Neural Multi-Garment Simulations</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dolorousrtur.github.io/" target="_blank">Artur Grigorev</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://ps.is.mpg.de/person/gbecherini" target="_blank">Giorgio Becherini</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://ps.is.mpg.de/~black" target="_blank">Michael J. Black</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ait.ethz.ch/people/hilliges/" target="_blank">Otmar Hilliges</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://n.ethz.ch/~bthomasz/index.html" target="_blank">Bernhard Thomaszewski</a><sup>1</sup>,</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ETH Zürich,</span>
+            <span class="author-block"><sup>2</sup>Max Planck ETH Center for Learning Systems</span>
+            <span class="author-block"><sup>3</sup>Max Planck Institute for Intelligent Systems, Tübingen, Germany</span>
+          </div>
+
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+          <span class="link-block">
+            <a href="https://dl.acm.org/doi/pdf/10.1145/3641519.3657408" target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fas fa-file-pdf"></i>
+              </span>
+              <span>Paper</span>
+            </a>
+          </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2405.09522"  target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/5i9DXhPMEow"  target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/dolorousrtur/ContourCraft"  target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (TBA)</span>
+                  </a>
+              </span>
+
+            </div>
+            <div class="is-size-4">
+              <span>SIGGRAPH 2024 Paper</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/00_teaser_projectpage_C.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        ContourCraft can successfully <b>simulate complex multi-layer outfits</b> under dynamic human motions.
+        With novel Intersection Contour loss term, it can both <b>prevent <u><i>and</i></u> resolve intersections</b> in neural cloth simulations.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/5i9DXhPMEow?si=NBmboQDVrUDn7T2l"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </div>
+
+        <div class="content has-text-justified">
+          <p><br>ContourCraft is a <b>learning-based solution for handling intersections in neural cloth simulations.</b>
+            Unlike conventional approaches that critically rely on intersection-free inputs,
+            <b>ContourCraft robustly recovers from intersections</b> introduced through missed collisions,
+            self-penetrating bodies, or errors in manually designed multi-layer
+            outfits.
+            <br><br>
+            The technical core of ContourCraft is a <b>novel intersection contour loss</b> that penalizes interpenetrations and
+            encourages
+            rapid resolution thereof.
+            We integrate our intersection loss with a collision-avoiding repulsion objective into a neural cloth simulation
+            method
+            based on graph neural networks (GNNs).
+        
+            <br><br>
+            We demonstrate our method's ability across a challenging set of diverse multi-layer outfits under dynamic human
+            motions.
+            Our extensive analysis indicates that ContourCraft significantly improves collision handling for learned simulation
+            and
+            produces visually compelling results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+
+    <!-- Method. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+
+
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                  autoplay
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="100%">
+            <source src="./static/videos/05_method.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            We extend learned GNN-based garment simulation approach introduced in <a href="https://dolorousrtur.github.io/hood/" target="_blank">HOOD</a> with two key modifications.
+            First, we add cloth-cloth correspondences to the graph and use <b><u>repulsion loss term</u></b> to <b><u>prevent</u></b> intersections.
+            Second, we introduce a novel <b><u>Intersection Contour loss term</u></b>  that penalizes length of interpenetrations and encourages model to <b><u>resolve</u></b> them.
+            Check out our <a href=https://dl.acm.org/doi/pdf/10.1145/3641519.3657408>full paper</a> for more details!
+            </p>
+        </div>
+        <!--/ Method. -->
+
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Dynamic Topology. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Automatically resized outfits</h2>
+          <video id="unzip_video" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/04_resize_full_C.mp4"
+                    type="video/mp4">
+          </video>
+          <p>
+            Automatic resizing procedures often introduce unwanted intersetions that need to be manually rectified before starting the simulation.
+            ContourCraft can resolve these intersections on the fly and does not require any manual intervention.
+          </p>
+        </div>
+      </div>
+      <!--/ Dynamic Topology. -->
+
+      <!-- Local Material. -->
+      <div class="column">
+        <h2 class="title is-3">Export to alembic sequences</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <video id="multimat-video" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/03_UE_C.mp4"
+                      type="video/mp4">
+            </video>
+            <p>
+              Results of our method can be easily exported to industry-standard formats like Alembic for further processing in VFX pipelines.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Local Material. -->
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" id="results01" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/01.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results03" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/07.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results05" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/05.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results07" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/03.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results02" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/02.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results04" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/04.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results06" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/06.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="results08" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/results/08.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="has-text-centered"><a href="https://drive.google.com/drive/folders/1WXhS9dvuqNV1ZWEyP-rWfCrr072dGQko?usp=sharing" target="_blank">More here</a></div>
+    </div>
+  </div>
+</section> 
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @inproceedings{grigorev2024contourcraft,
+    title={{ContourCraft}: Learning to Resolve Intersections in Neural Multi-Garment Simulations},
+    author={Grigorev, Artur and Becherini, Giorgio and Black, Michael and Hilliges, Otmar and Thomaszewski, Bernhard},
+    booktitle={ACM SIGGRAPH 2024 Conference Papers},
+    pages={1--10},
+    year={2024}
+    }
+     </code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2405.09522" target="_blank">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/dolorousrtur/ContourCraft" target="_blank" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This webpage is built with the template from <a
+              href="https://github.com/nerfies/nerfies.github.io" target="_blank">NeRFies</a>. We sincerely thank <a href="https://keunhong.com/" target="_blank">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
